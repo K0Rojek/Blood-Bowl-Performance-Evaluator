@@ -23,6 +23,7 @@ public abstract class AbstractPlayer {
     private double srDefence;
     private List<SkillType> primaryAccess;
     private List<SkillType> secondaryAccess;
+    private int amountOfNigglingInjuries = 0;
 
     public AbstractPlayer(int MA, int ST, int AG, int PA, int AV, List<Skill> skills, List<SkillType> primaryAccess, List<SkillType> secondaryAccess) {
         this.MA = MA;
@@ -36,7 +37,7 @@ public abstract class AbstractPlayer {
 
     }
 
-    //skillUp method
+    //skillUp method, injury method
 
     public int getMA() {
         return MA;
