@@ -33,6 +33,7 @@ public abstract class AbstractPlayer {
         this.skills = skills;
         this.primaryAccess = primaryAccess;
         this.secondaryAccess = secondaryAccess;
+
     }
 
     //skillUp method
@@ -89,8 +90,8 @@ public abstract class AbstractPlayer {
         return srMA;
     }
 
-    public void setSrMA(double srMA) {
-        this.srMA = srMA;
+    public void setSrMA() {
+        this.srMA = (this.MA - 1)/1.3;
     }
 
     public double getSrST() {
@@ -98,7 +99,7 @@ public abstract class AbstractPlayer {
     }
 
     public void setSrST(double srST) {
-        this.srST = srST;
+        this.srST = Math.max(0, Math.min(5, this.ST) + Math.max(0, (this.ST - 5) * 0.5));
     }
 
     public double getSrAG() {
@@ -106,7 +107,8 @@ public abstract class AbstractPlayer {
     }
 
     public void setSrAG(double srAG) {
-        this.srAG = srAG;
+        int oldAG = 6 - this.AG;
+        this.srAG = Math.min(5, oldAG) + Math.max(0, (oldAG - 4) * 0.6);
     }
 
     public double getSrPA() {
