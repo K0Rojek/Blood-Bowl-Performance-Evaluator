@@ -21,8 +21,8 @@ public abstract class AbstractPlayer {
     private double srPassing;
     private double srBallHandling;
     private double srDefence;
-    private List<SkillType> primaryAccess;
-    private List<SkillType> secondaryAccess;
+    private final List<SkillType> primaryAccess;
+    private final List<SkillType> secondaryAccess;
     private int amountOfNigglingInjuries = 0;
 
     public AbstractPlayer(int MA, int ST, int AG, int PA, int AV, List<Skill> skills, List<SkillType> primaryAccess, List<SkillType> secondaryAccess) {
@@ -117,7 +117,8 @@ public abstract class AbstractPlayer {
     }
 
     public void setSrPA(double srPA) {
-        this.srPA = srPA;
+        int oldPA = 6 - this.PA;
+        //this.srAG = Math.min(5, oldAG) + Math.max(0, (oldAG - 4) * 0.6);
     }
 
     public double getSrAV() {
