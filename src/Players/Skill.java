@@ -8,14 +8,7 @@ public class Skill {
     private double srPassing;
     private double srBallHandling;
     private double srDefence;
-    private enum Type {
-        GENERAL,
-        STRENGTH,
-        AGILITY,
-        PASSING,
-        MUTATION,
-        EXTRAORDINARY
-    }
+
 
     public Skill(String skillName, double srBrute, double srTough, double srMobility, double srPassing, double srBallHandling, double srDefence) {
         this.skillName = skillName;
