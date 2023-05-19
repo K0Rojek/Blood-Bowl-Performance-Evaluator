@@ -1,16 +1,25 @@
 package Players;
 
 public class Skill {
-    private String skillName;
-    private double srBrute;
-    private double srTough;
-    private double srMobility;
-    private double srPassing;
-    private double srBallHandling;
-    private double srDefence;
+    private final String skillName;
+    private final double srBrute;
+    private final double srTough;
+    private final double srMobility;
+    private final double srPassing;
+    private final double srBallHandling;
+    private final double srDefence;
+    private final SkillType skillType;
 
 
-    public Skill(String skillName, double srBrute, double srTough, double srMobility, double srPassing, double srBallHandling, double srDefence) {
+    private boolean isValidType(SkillType type) {
+        return type == SkillType.EXTRAORDINARY || type == SkillType.MUTATION ||
+                type == SkillType.GENERAL || type == SkillType.PASSING ||
+                type == SkillType.AGILITY || type == SkillType.STRENGTH;
+    }
+    public Skill(String skillName, double srBrute, double srTough, double srMobility, double srPassing, double srBallHandling, double srDefence, SkillType skillType) {
+        if (!isValidType(skillType)) {
+            throw new IllegalArgumentException("Invalid skill category.");
+        }
         this.skillName = skillName;
         this.srBrute = srBrute;
         this.srTough = srTough;
@@ -18,6 +27,7 @@ public class Skill {
         this.srPassing = srPassing;
         this.srBallHandling = srBallHandling;
         this.srDefence = srDefence;
+        this.skillType = skillType;
     }
 
     public String getSkillName() {
@@ -46,6 +56,10 @@ public class Skill {
 
     public double getSrDefence() {
         return srDefence;
+    }
+
+    public SkillType getSkillType() {
+        return skillType;
     }
 
     @Override
